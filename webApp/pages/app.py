@@ -26,6 +26,7 @@ from pathlib import Path
 from zipfile import ZipFile 
 nltk.download('punkt')
 nltk.download('stopwords')
+nltk.download('wordnet')
 
 rootPath = str(Path(__file__).resolve().parent.parent)
 
