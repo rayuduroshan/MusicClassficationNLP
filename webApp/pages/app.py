@@ -135,7 +135,7 @@ def report_page():
     #images
      
      #Figire 1
-    image_url = "/Users/rogo/Desktop/nlp-2024spr/project/webApp/pages/barplotOfGenreCounts.png"  # Replace this with your image URL
+    image_url = "barplotOfGenreCounts.png"  # Replace this with your image URL
     st.image(image_url, caption='Figure 1.', use_column_width=True)
     st.markdown("""
 <div style="text-align: center;">
@@ -144,7 +144,7 @@ def report_page():
 """, unsafe_allow_html=True)
     
     #Figure 2
-    image_url = "/Users/rogo/Desktop/nlp-2024spr/project/webApp/pages/wordcloud_['Hip Hop'].png"  # Replace this with your image URL
+    image_url = "wordcloud_['Hip Hop'].png"  # Replace this with your image URL
     st.image(image_url, caption='Figure 2.', use_column_width=True)
     st.markdown("""
 <div style="text-align: center;">
@@ -154,7 +154,7 @@ def report_page():
     
 
     #Figure 3
-    image_url = "/Users/rogo/Desktop/nlp-2024spr/project/webApp/pages/wordcloud_['Pop'].png"  # Replace this with your image URL
+    image_url = "wordcloud_['Pop'].png"  # Replace this with your image URL
     st.image(image_url, caption='Figure 3.', use_column_width=True)
     st.markdown("""
 <div style="text-align: center;">
@@ -163,7 +163,7 @@ def report_page():
 """, unsafe_allow_html=True)
     
     #Figure 4
-    image_url = "/Users/rogo/Desktop/nlp-2024spr/project/webApp/pages/wordcloud_['Rock'].png"  # Replace this with your image URL
+    image_url = "wordcloud_['Rock'].png"  # Replace this with your image URL
     st.image(image_url, caption='Figure 4.', use_column_width=True)
     st.markdown("""
 <div style="text-align: center;">
@@ -212,7 +212,7 @@ def report_page():
                     - The baseline models were initially trained and evaluated on the imbalanced dataset to assess their performance in the natural data distribution.
                     - At the outset of the analysis, Logistic Regression, Random Forest, and XGBoost were selected as baseline classification models for music genre prediction based on lyrics data. The dataset exhibited a notable class imbalance, with 'Pop' being heavily represented, followed by 'Rock' and 'Hip Hop' with fewer instances
              """)
-    image_url = "/Users/rogo/Desktop/nlp-2024spr/project/webApp/pages/cm_without_class_balance.png" 
+    image_url = "cm_without_class_balance.png" 
     st.image(image_url, caption='Figure 5.', use_column_width=True)
     st.markdown("""
 <div style="text-align: center;">
@@ -224,7 +224,7 @@ def report_page():
                     - Through the implementation of SMOTE oversampling, the project successfully managed class imbalance and improved the robustness of machine learning models for music genre classification based on lyrics data.
             """)
     
-    image_url = "/Users/rogo/Desktop/nlp-2024spr/project/webApp/pages/logistic_after_balance.png" 
+    image_url = "logistic_after_balance.png" 
     st.image(image_url, caption='Figure 6.', use_column_width=True)
     st.markdown("""
 <div style="text-align: center;">
@@ -235,7 +235,7 @@ def report_page():
                     - Random Forest's combination of ensemble learning principles, robustness, scalability, interpretability, and feature importance analysis makes it the best model for music genre classification tasks based on lyrics data. Its ability to handle complex relationships, generalize to new data, and provide valuable insights into genre characteristics positions Random Forest as a top-performing and reliable choice for this domain.
 
 """)
-    image_url = "/Users/rogo/Desktop/nlp-2024spr/project/webApp/pages/various_f1scores.png" 
+    image_url = "various_f1scores.png" 
     st.image(image_url, caption='Figure 7.', use_column_width=True)
     st.markdown("""
 <div style="text-align: center;">
@@ -245,7 +245,7 @@ def report_page():
     
 
 
-    image_url = "/Users/rogo/Desktop/nlp-2024spr/project/webApp/pages/best_model.png" 
+    image_url = "best_model.png" 
     st.image(image_url, caption='Figure 8.', use_column_width=True)
     st.markdown("""
 <div style="text-align: center;">
@@ -262,7 +262,7 @@ We use this model to get scores for 7 classes which are anger, disgust, fear, jo
 
     st.markdown("<h3 style='font-size: 24px;'>3.5. Results</h3>", unsafe_allow_html=True)
 
-    image_url = "/Users/rogo/Desktop/nlp-2024spr/project/webApp/pages/hiphop.png" 
+    image_url = "hiphop.png" 
     st.image(image_url, caption='Figure 9.', use_column_width=True)
     st.markdown("""
 <div style="text-align: center;">
@@ -271,7 +271,7 @@ We use this model to get scores for 7 classes which are anger, disgust, fear, jo
 """, unsafe_allow_html=True)
     
 
-    image_url = "/Users/rogo/Desktop/nlp-2024spr/project/webApp/pages/pop.png" 
+    image_url = "pop.png" 
     st.image(image_url, caption='Figure 10.', use_column_width=True)
     st.markdown("""
 <div style="text-align: center;">
@@ -280,7 +280,7 @@ We use this model to get scores for 7 classes which are anger, disgust, fear, jo
 """, unsafe_allow_html=True)
     
 
-    image_url = "/Users/rogo/Desktop/nlp-2024spr/project/webApp/pages/rock.png" 
+    image_url = "rock.png" 
     st.image(image_url, caption='Figure 11.', use_column_width=True)
     st.markdown("""
 <div style="text-align: center;">
