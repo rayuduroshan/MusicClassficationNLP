@@ -16,6 +16,10 @@ The approach is to create GloVe embedding from our datasets and use these embedd
 1. Dataset 1: [Music Dataset: 1950 to 2019](https://www.kaggle.com/datasets/saurabhshahane/music-dataset-1950-to-2019?rvi=1)
 2. Dataset 2: [Song lyrics from 79 musical genres](https://www.kaggle.com/datasets/neisse/scrapped-lyrics-from-6-genres?rvi=1)
 
+## Web-based UI:
+
+[MusicClassificationUsingLyrics](https://music-classfication-lyrics.streamlit.app/)
+
 ## References
 
 1. [Music Genre Classification using Song Lyrics](https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1214/reports/final_reports/report003.pdf)
