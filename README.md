@@ -17,7 +17,7 @@ The approach is to create GloVe embedding from our datasets and use these embedd
 2. Dataset 2: [Song lyrics from 79 musical genres](https://www.kaggle.com/datasets/neisse/scrapped-lyrics-from-6-genres?rvi=1)
 
 ## Web-based UI:
-
+We've created a user-friendly web interface using the Streamlit framework in Python. Our interface allows users to test a model by inputting data, searching and filtering songs based on genres and emotions, and even adding new data. It provides an intuitive platform for exploring music based on various criteria, enhancing the user experience with streamlined functionality.
 [MusicClassificationUsingLyrics](https://music-classfication-lyrics.streamlit.app/)
 
 ## References
