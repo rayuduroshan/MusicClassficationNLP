@@ -24,9 +24,9 @@ from transformers import pipeline, RobertaTokenizer
 import pickle
 from pathlib import Path
 from zipfile import ZipFile 
+nltk.download('punkt')
 
 rootPath = str(Path(__file__).resolve().parent.parent)
-print(rootPath)
 
 def unzipFile(path):
     with ZipFile(path, 'r') as zObject: 
@@ -182,7 +182,6 @@ def test_model_page():
         
         # Load your trained model
         unzipFile(rootPath+'/best_model.pkl.zip')
-        st.write(rootPath+'/best_model.pkl')
         gen_model = joblib.load(rootPath+'/best_model.pkl')
         # Predict genre number using the model
         genre_number = gen_model.predict(input_embedding.reshape(1, -1))[0]
