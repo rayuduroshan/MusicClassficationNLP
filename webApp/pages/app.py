@@ -25,6 +25,7 @@ import pickle
 from pathlib import Path
 from zipfile import ZipFile 
 nltk.download('punkt')
+nltk.download('stopwords')
 
 rootPath = str(Path(__file__).resolve().parent.parent)
 
