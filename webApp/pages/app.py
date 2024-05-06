@@ -23,9 +23,15 @@ import joblib
 from transformers import pipeline, RobertaTokenizer
 import pickle
 from pathlib import Path
+from zipfile import ZipFile 
 
 rootPath = str(Path(__file__).resolve().parent.parent)
 print(rootPath)
+
+def unzipFile(path):
+    with ZipFile(path, 'r') as zObject: 
+        zObject.extractall(rootPath)
+    zObject.close()
 
 def clean_text(text):
     # Clean text data in lyrics column
@@ -175,6 +181,7 @@ def test_model_page():
        # st.write("Predicted Genre Number:", input_embedding)
         
         # Load your trained model
+        unzipFile(rootPath+'/best_model.pkl.zip')
         st.write(rootPath+'/best_model.pkl')
         gen_model = joblib.load(rootPath+'/best_model.pkl')
         # Predict genre number using the model
