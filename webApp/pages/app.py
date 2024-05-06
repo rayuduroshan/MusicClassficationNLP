@@ -196,27 +196,28 @@ def test_model_page():
         
         # Display the sentiments
         st.write("Top Sentiments:", sentiments)
-
-        if st.button("Add to Data"):
+        song_name = st.text_input("Enter Song Name:", "")
+        artist_name = st.text_input("Enter Artist Name:", "")
+        if st.button("Add Song to Database"):
             # Create a DataFrame with the input text and predicted genre
             data = {
-                "Artist": "xx",
+                "Artist": artist_name,
                 "target": "xx",
                 "Lyric": input_text,
-                "SName": "xx",
+                "SName": song_name,
                 "language": "xx",
                 "cleaned_lyrics": cleaned_text,
                 "Hip Hop": 1 if predicted_genre == "Hip Hop" else 0,
                 "Pop": 1 if predicted_genre == "Pop" else 0,
                 "Rock": 1 if predicted_genre == "Rock" else 0,
-                "Genre": predicted_genre,
-                "top_sentiments": sentiments
+                "top_sentiments": sentiments,
+                "Genre": predicted_genre
             }
             df = pd.DataFrame([data])
-            
             # Append the DataFrame to the CSV file
-            with open(rootPath+"/data_with_sentiments.csv", "a") as file:
+            with open(rootPath+"/data_with_sentiments1.csv", "a") as file:
                 df.to_csv(file, index=False, header=False)
+            st.cache_resource.clear()
     
    
 
@@ -230,7 +231,9 @@ def search_page():
         df = pd.read_csv(rootPath+'/data_with_sentiments1.csv')
         return df
     df = load_data()
-    
+    song_name_text = st.text_input("Enter Song Name:", "")
+    if song_name_text:
+        df = df[df["SName"].str.lower().str.contains(song_name_text.lower(), na=False)]
     # Genre filter
     selected_genre = st.multiselect("Select Genre", ["Hip Hop", "Pop", "Rock"])
     if selected_genre:
