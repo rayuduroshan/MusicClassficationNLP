@@ -215,7 +215,7 @@ def test_model_page():
             df = pd.DataFrame([data])
             
             # Append the DataFrame to the CSV file
-            with open("/Users/roshanrayudu/Desktop/NLP_sem4/MusicClassficationNLP/data_with_sentiments.csv", "a") as file:
+            with open(rootPath+"/data_with_sentiments.csv", "a") as file:
                 df.to_csv(file, index=False, header=False)
     
    
