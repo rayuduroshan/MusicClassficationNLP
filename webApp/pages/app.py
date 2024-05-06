@@ -110,43 +110,185 @@ def getTopSentiments(text):
     #print[x]
     return x
 
-
 def report_page():
     # Main page title
     st.title("Report Page")
 
     # Side heading using Markdown syntax
     # st.markdown("## Introduction")
-    st.markdown("<h2 style='font-size: 30px;'>Introduction</h2>", unsafe_allow_html=True)
+    st.markdown("<h2 style='font-size: 35px;'>1. Introduction</h2>", unsafe_allow_html=True)
 
     # Main page content
     st.write("Our project's goal is to use song lyrics to categorize music into genres. Humans find it difficult to accomplish this task, and since borders are not always obvious, there is frequent discussion regarding where song fits in. Music genres show similarities between tracks, which helps to group music into collections. Songs often fit into more than one genre, indicating that genre isn't always clearly defined. Automating this classification process is highly motivated by technologies such as Spotify, which adds an estimated 60,000 songs to its database every day.")
 
-     # Preprocessing details
+   
     st.write("""
     We have merged the data, dropped all non-English songs, and removed duplicate songs. The output genres have been one-hot-encoded. Due to class imbalance, we experimented with oversampling and SMOTE techniques. Our GloVe embeddings were created using the Stanford NLP GitHub repository code, utilizing the corpus generated from our datasets.
     """)
-    st.markdown("<h2 style='font-size: 30px;'>Data</h2>", unsafe_allow_html=True)
+    st.markdown("<h2 style='font-size: 35px;'>2. Data</h2>", unsafe_allow_html=True)
     st.write("""
     We worked with two primary datasets:
     - [Dataset 1: Music Dataset: 1950 to 2019](https://www.kaggle.com/datasets/saurabhshahane/music-dataset-1950-to-2019)
     - [Dataset 2: Song lyrics from 79 musical genres](https://www.kaggle.com/datasets/neisse/scrapped-lyrics-from-6-genres)
-
-    In our preprocessing steps, we merged the data, dropped all non-English songs, and removed duplicate songs. The output genres were one-hot-encoded. Due to class imbalance, we experimented with oversampling and SMOTE techniques. Our GloVe embeddings were created using the Stanford NLP GitHub repository code, utilizing the corpus generated from our datasets.
+    
     """) 
+    #images
+     
+     #Figire 1
+    image_url = "/Users/rogo/Desktop/nlp-2024spr/project/webApp/pages/barplotOfGenreCounts.png"  # Replace this with your image URL
+    st.image(image_url, caption='Figure 1.', use_column_width=True)
+    st.markdown("""
+<div style="text-align: center;">
+    <p style="font-style: italic;">Bar graph representing the number of songs for each genre.</p>
+</div>
+""", unsafe_allow_html=True)
+    
+    #Figure 2
+    image_url = "/Users/rogo/Desktop/nlp-2024spr/project/webApp/pages/wordcloud_['Hip Hop'].png"  # Replace this with your image URL
+    st.image(image_url, caption='Figure 2.', use_column_width=True)
+    st.markdown("""
+<div style="text-align: center;">
+    <p style="font-style: italic;">Wordcloud (Most frequently used words for Hip Hop) for Hip Hop.</p>
+</div>
+""", unsafe_allow_html=True)
+    
 
-    st.markdown("<h2 style='font-size: 30px;'>Approach</h2>", unsafe_allow_html=True)
+    #Figure 3
+    image_url = "/Users/rogo/Desktop/nlp-2024spr/project/webApp/pages/wordcloud_['Pop'].png"  # Replace this with your image URL
+    st.image(image_url, caption='Figure 3.', use_column_width=True)
+    st.markdown("""
+<div style="text-align: center;">
+    <p style="font-style: italic;">Wordcloud (Most frequently used words for Hip Hop) for Pop.</p>
+</div>
+""", unsafe_allow_html=True)
+    
+    #Figure 4
+    image_url = "/Users/rogo/Desktop/nlp-2024spr/project/webApp/pages/wordcloud_['Rock'].png"  # Replace this with your image URL
+    st.image(image_url, caption='Figure 4.', use_column_width=True)
+    st.markdown("""
+<div style="text-align: center;">
+    <p style="font-style: italic;">Wordcloud(Most frequently used words for Hip Hop) for rock.</p>
+</div>
+""", unsafe_allow_html=True)
+    
+
+
+    st.markdown("<h2 style='font-size: 35px;'>3. Approach</h2>", unsafe_allow_html=True)
 
     # Approach details
     st.write("""
     The approach is to create GloVe embeddings from our datasets and use these embeddings in a logistic regression model, which serves as our baseline. We will then experiment using various classification algorithms to achieve an accurate model.
     """)
 
-    st.markdown("<h2 style='font-size: 30px;'>Preprocessing</h2>", unsafe_allow_html=True)
+    st.markdown("<h3 style='font-size: 24px;'>3.1. Input Preprocessing</h3>", unsafe_allow_html=True)
+    st.write("""
+    1. Language Filtering: We identified and filtered out non-English songs from the dataset using the langdetect library, ensuring that our analysis focuses exclusively on English-language lyrics.
+    2. Text Cleaning: The clean_text function was applied to the lyrics, which involved:
+        - Converting text to lowercase for uniformity.
+        - Removing punctuation marks to reduce noise.
+        - Tokenizing the lyrics into individual words.
+        - Removing stopwords (common words without significant meaning).
+        - Lemmatizing tokens to their base forms for standardization.
+    3. DataFrame Preparation: We created a refined DataFrame with essential columns such as artist information, genre labels, cleaned lyrics, and language identifiers, eliminating duplicates and missing values.
+    4. GloVe Embeddings Loading:  
+        - The get_word_embedding function retrieves the embedding vector for a given word from the loaded GloVe embeddings. If the word is not found, it returns a zero vector.
+        - The get_lyric_embedding function tokenizes lyrics into words and calculates the average embedding vector for the entire lyric by averaging the embeddings of individual words.
+        - The code applies the get_lyric_embedding function to each row in the DataFrame df['cleaned_lyrics'], creating a new column lyric_embedding containing the computed lyric embeddings.       
+    5. Outcome: The preprocessing yielded a clean and structured dataset suitable for subsequent analyses
+    """) 
+ 
+    st.markdown("<h3 style='font-size: 24px;'>3.2. Outputs</h3>", unsafe_allow_html=True)
+    st.write(""" 
+        1. MultiLabelBinarizer Encoding for Genre Labels
+             - Encoding Genre Labels: MultiLabelBinarizer is instantiated to encode the 'target' column (genre labels) into binary form, creating separate columns for each genre label.
+             - Creating Encoded DataFrame: The encoded targets are transformed into a DataFrame with binary columns representing each unique genre label.
+             - The resulting DataFrame contains binary-encoded genre labels, enabling genre-specific analyses and machine learning tasks. The number of unique genre classes and the total count of English songs in the dataset are printed for reference.
+            
+             """)
+    
+    st.markdown("<h3 style='font-size: 24px;'>3.3. Classification</h3>", unsafe_allow_html=True)
+    st.write("""
+             1. Baseline Models
+                    - The baseline models were initially trained and evaluated on the imbalanced dataset to assess their performance in the natural data distribution.
+                    - At the outset of the analysis, Logistic Regression, Random Forest, and XGBoost were selected as baseline classification models for music genre prediction based on lyrics data. The dataset exhibited a notable class imbalance, with 'Pop' being heavily represented, followed by 'Rock' and 'Hip Hop' with fewer instances
+             """)
+    image_url = "/Users/rogo/Desktop/nlp-2024spr/project/webApp/pages/cm_without_class_balance.png" 
+    st.image(image_url, caption='Figure 5.', use_column_width=True)
+    st.markdown("""
+<div style="text-align: center;">
+    <p style="font-style: italic;">cm_without_class_balance.</p>
+</div>
+""", unsafe_allow_html=True)
+    st.write("""        
+              2. Handling Class Imbalance
+                    - Through the implementation of SMOTE oversampling, the project successfully managed class imbalance and improved the robustness of machine learning models for music genre classification based on lyrics data.
+            """)
+    
+    image_url = "/Users/rogo/Desktop/nlp-2024spr/project/webApp/pages/logistic_after_balance.png" 
+    st.image(image_url, caption='Figure 6.', use_column_width=True)
+    st.markdown("""
+<div style="text-align: center;">
+    <p style="font-style: italic;">logistic_after_balance</p>
+</div>
+""", unsafe_allow_html=True)
+    st.write("""         3. Best Model
+                    - Random Forest's combination of ensemble learning principles, robustness, scalability, interpretability, and feature importance analysis makes it the best model for music genre classification tasks based on lyrics data. Its ability to handle complex relationships, generalize to new data, and provide valuable insights into genre characteristics positions Random Forest as a top-performing and reliable choice for this domain.
 
-   
+""")
+    image_url = "/Users/rogo/Desktop/nlp-2024spr/project/webApp/pages/various_f1scores.png" 
+    st.image(image_url, caption='Figure 7.', use_column_width=True)
+    st.markdown("""
+<div style="text-align: center;">
+    <p style="font-style: italic;">F1 scores</p>
+</div>
+""", unsafe_allow_html=True)
+    
 
-    st.markdown("<h2 style='font-size: 30px;'>References</h2>", unsafe_allow_html=True)
+
+    image_url = "/Users/rogo/Desktop/nlp-2024spr/project/webApp/pages/best_model.png" 
+    st.image(image_url, caption='Figure 8.', use_column_width=True)
+    st.markdown("""
+<div style="text-align: center;">
+    <p style="font-style: italic;">Best model.</p>
+</div>
+""", unsafe_allow_html=True)
+    
+
+    st.markdown("<h3 style='font-size: 24px;'>3.4. Sentiment Analysis</h3>", unsafe_allow_html=True)
+    st.write("""
+    We have performed Sentiment Analysis on our lyrics dataset using a Bert based model (j-hartmann/emotion-english-distilroberta-base). We chose this model because bert models use attention mechanisms to better capture the context and dependencies between words and are better at handling long sequences. This model has been trained on 6 different datasets and has been finetuned to predict scores for 6 different emotions and a neutral class.
+We use this model to get scores for 7 classes which are anger, disgust, fear, joy, neutral, sadness and surprise. Once we get emotion scores for song, we assign top three emotions to that song using 0.2 as a threshold (we assign atmost three different emotions to a song, only assign an emotion to a song from the top 3 emotion scores if score is greater than 0.2).
+""")
+
+    st.markdown("<h3 style='font-size: 24px;'>3.5. Results</h3>", unsafe_allow_html=True)
+
+    image_url = "/Users/rogo/Desktop/nlp-2024spr/project/webApp/pages/hiphop.png" 
+    st.image(image_url, caption='Figure 9.', use_column_width=True)
+    st.markdown("""
+<div style="text-align: center;">
+    <p style="font-style: italic;">HipHop</p>
+</div>
+""", unsafe_allow_html=True)
+    
+
+    image_url = "/Users/rogo/Desktop/nlp-2024spr/project/webApp/pages/pop.png" 
+    st.image(image_url, caption='Figure 10.', use_column_width=True)
+    st.markdown("""
+<div style="text-align: center;">
+    <p style="font-style: italic;">Pop.</p>
+</div>
+""", unsafe_allow_html=True)
+    
+
+    image_url = "/Users/rogo/Desktop/nlp-2024spr/project/webApp/pages/rock.png" 
+    st.image(image_url, caption='Figure 11.', use_column_width=True)
+    st.markdown("""
+<div style="text-align: center;">
+    <p style="font-style: italic;">Rock.</p>
+</div>
+""", unsafe_allow_html=True)
+
+    st.markdown("<h2 style='font-size: 35px;'>References</h2>", unsafe_allow_html=True)
 
     # References details with accessible links
     st.write("""
@@ -154,8 +296,8 @@ def report_page():
     - [Train GloVe Embeddings using Stanford NLP code](https://stackoverflow.com/questions/48962171/how-to-train-glove-algorithm-on-my-own-corpus)
     - [Over 60,000 tracks are now uploaded to Spotify every day. that’s nearly one per second](https://www.musicbusinessworldwide.com/over-60000-tracks-are-now-uploaded-to-spotify-daily-thats-nearly-one-per-second/)
     - [Stanford NLP GitHub repository](https://github.com/stanfordnlp/GloVe/tree/master/eval)
+    - [Hugging face.co](https://huggingface.co/j-hartmann/emotion-english-distilroberta-base)
     """)
-
 
 def test_model_page():
     st.title("Testing the Model Page")
