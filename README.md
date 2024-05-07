@@ -11,6 +11,8 @@ Website Link : [MusicClassificationUsingLyrics](https://music-classfication-lyri
 
 Project Report Link : [Report](https://github.com/rayuduroshan/MusicClassficationNLP/blob/main/project-report.pdf)
 
+<video src="https://github.com/rayuduroshan/MusicClassficationNLP/blob/main/NLP-Project-Demo.mp4" width="300" />
+
 ## Data
 
 1. Dataset 1: [Music Dataset: 1950 to 2019](https://www.kaggle.com/datasets/saurabhshahane/music-dataset-1950-to-2019?rvi=1)
