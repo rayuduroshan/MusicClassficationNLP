@@ -89,6 +89,7 @@ The approach is to create GloVe embeddings from our datasets and use these embed
    - Random Forest's combination of ensemble learning principles, robustness, scalability, interpretability, and feature importance analysis makes it the best model for music genre 
      classification tasks based on lyrics data. Its ability to handle complex relationships, generalize to new data, and provide valuable insights into genre characteristics positions 
      Random Forest is a top-performing and reliable choice for this domain.
+     
 | ![cm_without_class_balance](https://github.com/rayuduroshan/MusicClassficationNLP/blob/main/webApp/pages/various_f1scores.png) | 
 |:--:|
 |various F1 scores|
