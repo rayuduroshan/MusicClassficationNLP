@@ -7,8 +7,9 @@ Our project's goal is to use song lyrics to categorize music into genres. Humans
 ## Web-based UI:
 We've created a user-friendly web interface using the Streamlit framework in Python. Our interface allows users to test a model by inputting data, searching and filtering songs based on genres and emotions, and even adding new data. It provides an intuitive platform for exploring music based on various criteria, enhancing the user experience with streamlined functionality.
 
-Click here for website : [MusicClassificationUsingLyrics](https://music-classfication-lyrics.streamlit.app/)
-Project report : [Report](https://github.com/rayuduroshan/MusicClassficationNLP/blob/main/project-report.pdf)
+Website Link : [MusicClassificationUsingLyrics](https://music-classfication-lyrics.streamlit.app/)
+
+Project Report Link : [Report](https://github.com/rayuduroshan/MusicClassficationNLP/blob/main/project-report.pdf)
 
 ## Data
 
