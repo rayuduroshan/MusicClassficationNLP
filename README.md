@@ -13,6 +13,9 @@ Project Report Link : [Report](https://github.com/rayuduroshan/MusicClassficatio
 
 Video Demo Link : [Demo](https://youtu.be/6GTdwIiLJI4)
 
+https://github.com/rayuduroshan/MusicClassficationNLP/assets/42446923/febb3fea-dc32-42ab-8624-8e5cee79a334
+
+
 
 ## Data
 
