@@ -11,7 +11,6 @@ Website Link : [MusicClassificationUsingLyrics](https://music-classfication-lyri
 
 Project Report Link : [Report](https://github.com/rayuduroshan/MusicClassficationNLP/blob/main/project-report.pdf)
 
-<video src="https://github.com/rayuduroshan/MusicClassficationNLP/blob/main/NLP-Project-Demo.mp4" width="300" />
 
 ## Data
 
